@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<h1 class="text-center text-primary my-3">Gestion des écureuils et du stock de noix</h1>
+	<section class="container bg-light bg-opacity-50 rounded p-3">
+		<div class="squirrels mb-5">
+			<h2>Liste des écureuils ayant accès au stock :</h2>
+			{% if squirrels is not defined or squirrels is empty %}
+				<span class="alert-danger rounded p-2">Aucun écureuil !</span>
+			{% else %}
+				<ul>
+					{% for squirrel in squirrels %}
+						<li>{{ squirrel.name }}</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		</div>
+		{% if nuts is not defined or nuts is empty %}
+			<span class="alert-danger rounded p-2 my-5">Aucune noix en stock !</span>
+		{% else %}
+			<table class="table bg-secondary bg-opacity-50">
+				<thead>
+					<tr>
+						<td>Nom</td>
+						<td>Quantité</td>
+					</tr>
+				</thead>
+				{% for nut in nuts %}
+					<tr>
+						<td>
+							{{ nut.name }}
+						</td>
+						<td>
+							{{ nut.stock }}
+						</td>
+					</tr>
+				{% endfor %}
+			</table>
+		{% endif %}
+	</section>
+{% endblock %}

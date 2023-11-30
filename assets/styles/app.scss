@@ -1,0 +1,8 @@
+$primary: #884318;
+$secondary: #139c48;
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+}
